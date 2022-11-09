@@ -16,15 +16,15 @@ export default {
   },
   methods: {
     increase() {
-      this.$store.commit("updateOptionList", {
+      this.$store.commit("UPDATE_OPTIONS_CHOICE", {
         type: this.option.type,
-        cnt: 1,
+        count: 1,
       })
     },
     decrease() {
-      this.$store.commit("updateOptionList", {
+      this.$store.commit("UPDATE_OPTIONS_CHOICE", {
         type: this.option.type,
-        cnt: -1,
+        count: -1,
       })
     },
   },

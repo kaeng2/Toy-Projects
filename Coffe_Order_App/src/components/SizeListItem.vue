@@ -2,7 +2,7 @@
   <div
     id="single-choice"
     :class="['row', { 'is-selected': size.selected }]"
-    @click="pickSize"
+    @click="updateSizeChoice"
   >
     <span style="padding-block: 13px">{{ size.name }}</span>
     <span>{{ size.price.toLocaleString() }}원</span>
@@ -16,8 +16,8 @@ export default {
     size: Object,
   },
   methods: {
-    pickSize() {
-      this.$store.commit("updateSizeList", this.size)
+    updateSizeChoice() {
+      this.$store.commit("UPDATE_SIZE_CHOICE", this.size)
     },
   },
 }

@@ -17,15 +17,15 @@
       </div>
     </div>
 
-    <div class="container">
-      <div id="block">
-        <order-list />
-      </div>
-    </div>
+   
+    <order-list />
+
   </div>
 </template>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+const Swal = require('sweetalert2')
 import MenuList from "@/components/MenuList"
 import SizeList from "@/components/SizeList"
 import OrderList from "@/components/OrderList"
@@ -41,9 +41,22 @@ export default {
   },
   methods: {
     addOrder() {
+      if (this.$store.state.currentOrder.menu === null){
+        Swal.fire({
+          text: '메뉴부터 선택해주세요!',
+          icon: 'warning',
+          confirmButtonText: 'OK'
+        })
+      } else if (this.$store.state.currentOrder.size === null) {
+        Swal.fire({
+          text: '사이즈를 선택해주세요!',
+          icon: 'warning',
+          confirmButtonText: 'OK'
+        })
+      } else {
       this.$store.commit("addOrder")
-    },
-  },
+      }
+  }, }
 }
 </script>
 

@@ -2,7 +2,7 @@
   <div
     id="single-choice"
     :class="['row', { 'is-selected': menu.selected }]"
-    @click="pickMenu"
+    @click="updateMenuChoice"
   >
     <img :src="menu.image" alt="menu-img" id="menu-img" />
     <span>{{ menu.title }}</span>
@@ -17,8 +17,8 @@ export default {
     menu: Object,
   },
   methods: {
-    pickMenu() {
-      this.$store.commit("updateMenuList", this.menu)
+    updateMenuChoice() {
+      this.$store.commit("UPDATE_MENU_CHOICE", this.menu)
     },
   },
 }
