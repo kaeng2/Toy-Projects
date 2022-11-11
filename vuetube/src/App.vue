@@ -45,9 +45,8 @@ export default {
         method: "GET",
         url: "https://www.googleapis.com/youtube/v3/videos",
         params: {
-          // key 숨기는법 찾아보기 .env
           id: video.id.videoId,
-          key: "AIzaSyAp69ryCoG67a_wEQlI0tBWx4QSq3GBJ5A",
+          key: process.env.VUE_APP_YOUTUBE_API_KEY,
           part: "statistics",
         },
       }).then(function (response) {
@@ -60,9 +59,8 @@ export default {
         method: "GET",
         url: "https://www.googleapis.com/youtube/v3/channels",
         params: {
-          // key 숨기는법 찾아보기 .env
           id: video.snippet.channelId,
-          key: "AIzaSyAp69ryCoG67a_wEQlI0tBWx4QSq3GBJ5A",
+          key: process.env.VUE_APP_YOUTUBE_API_KEY,
           part: "snippet",
         },
       }).then(function (response) {
@@ -77,7 +75,7 @@ export default {
         url: "https://www.googleapis.com/youtube/v3/search",
         params: {
           // key 숨기는법 찾아보기 .env
-          key: "AIzaSyAp69ryCoG67a_wEQlI0tBWx4QSq3GBJ5A",
+          key: process.env.VUE_APP_YOUTUBE_API_KEY,
           part: "snippet",
           type: "video",
           q: keyword,
